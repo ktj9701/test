@@ -1,13 +1,272 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>html공부</title>
+    <style>
+        body {
+            width: 1623px;
+        }
+
+        header {
+            text-align: center;
+
+        }
+
+        #content {
+            overflow: hidden;
+        }
+
+        #left-aside {
+            float: left;
+            margin: 0 50px 0 30px;
+            width: 400px;
+            font-size: 20px;
+        }
+
+        #section {
+            width: 1000px;
+            float: left;
+            overflow: hidden;
+        }
+
+        #right-aside {
+            padding: 70px 0 0 20px;
+            display: inline-block;
+            background-color: yellow;
+            border-radius: 20px;
+            position: fixed;
+            font-size: 20px;
+            right: 150px;
+            top: 230px;
+            width: 200px;
+            height: 520px;
+        }
+
+        span {
+            font-size: 40px;
+            font-weight: bolder;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:first-child {
+            color: black;
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        #전사 {
+            color: #332800;
+        }
+
+        #footer-header {
+            font-size: 40px;
+            font-weight: bolder;
+        }
+
+        #footer {
+            padding: 60px 0 0 60px;
+        }
+
+        .footer-header {
+            line-height: normal;
+            display: block;
+            width: 600px;
+            height: 80px;
+            font-size: 20px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>테스트 </h1>
-    <p>html 공부 1일차</p>
+    <div>
+        <header id="header">
+            <br>
+            <br>
+            <a href="https://maplestory.nexon.com/Promotion/Event/2021/20211206/intro" target="_blank">
+                <span>메이플스토리 겨울방학 기대중&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </a>
+
+            <span id="time"></span>
+            <br><br>
+            <br><br>
+        </header>
+        <script>
+
+            const a = document.querySelector(`#time`);
+            let timeid = 0;
+            const xmasDay = new Date("2021-12-23");
+            const currDay = new Date();
+
+            let diff = xmasDay - currDay;
+            const diffDays = Math.floor((xmasDay.getTime() - currDay.getTime()) / (1000 * 60 * 60 * 24));
+            diff -= diffDays * (1000 * 60 * 60 * 24);
+            const diffHours = Math.floor(diff / (1000 * 60 * 60));
+            diff -= diffHours * (1000 * 60 * 60);
+            const diffMin = Math.floor(diff / (1000 * 60));
+            diff -= diffMin * (1000 * 60);
+            const diffSec = Math.floor(diff / 1000);
+
+            a.textContent = `${diffDays < 10 ? `0${diffDays}` : diffDays}일 ${diffHours < 10 ? `0${diffHours}` : diffHours}시간 ${diffMin < 10 ? `0${diffMin}` : diffMin}분 ${diffSec < 10 ? `0${diffSec}` : diffSec}초`;
+
+
+            timeid = setInterval(() => {
+                const currDay = new Date();
+
+                let diff = xmasDay - currDay;
+                const diffDays = Math.floor((xmasDay.getTime() - currDay.getTime()) / (1000 * 60 * 60 * 24));
+                diff -= diffDays * (1000 * 60 * 60 * 24);
+                const diffHours = Math.floor(diff / (1000 * 60 * 60));
+                diff -= diffHours * (1000 * 60 * 60);
+                const diffMin = Math.floor(diff / (1000 * 60));
+                diff -= diffMin * (1000 * 60);
+                const diffSec = Math.floor(diff / 1000);
+
+                a.textContent = `${diffDays < 10 ? `0${diffDays}` : diffDays}일 ${diffHours < 10 ? `0${diffHours}` : diffHours}시간 ${diffMin < 10 ? `0${diffMin}` : diffMin}분 ${diffSec < 10 ? `0${diffSec}` : diffSec}초`;
+            }, 1000);
+
+        </script>
+        <div id="content">
+            <aside id="left-aside">
+                <ul>
+                    <h2>-모험가</h2>
+                    <ul>
+                        <li><a href=#Hero id="전사"><del>히어로</del></a></li>
+                        <li><a href=#Paladin id="전사">팔라딘</a></li>
+                        <li><a href=#Dark_Knight id="전사">다크나이트</a></li>
+                        <li><a href=#Arch_Mage_(Fire/Poison) id="마법사">아크메이지(불,독)</a></li>
+                        <li><a href=#Arch_Mage_(Ice/Lightning) id="마법사">아크메이지(썬,콜)</a></li>
+                        <li><a href=##Bishop id="마법사">비숍</a></li>
+                        <li><a href=#Bow_Master id="궁수">보우마스터</a></li>
+                        <li><a href=#Marksman id="궁수">신궁</a></li>
+                        <li><a href=#Pathfinder id="궁수">패스파인더</a></li>
+                        <li><a href=#Night_Lord id="도적">나이트로드</a></li>
+                        <li><a href=#Shadower id="도적">섀도어</a></li>
+                        <li><a href=#Dual_Blade id="도적">듀얼블레이드</a></li>
+                        <li><a href=#Buccaneer id="해적">바이퍼</a></li>
+                        <li><a href=#Corsair id="해적">캡틴</a></li>
+                        <li><a href=#Cannoneer id="해적">캐논슈터</a></li>
+                    </ul>
+                    <h2>-시그너스</h2>
+                    <ul>
+                        <li><a href=#Mihile id="전사">미하일</a></li>
+                        <li><a href=#Dawn_Warrior id="전사">소울마스터</a></li>
+                        <li><a href=#Blaze_Wizard id="마법사">플레임위자드</a></li>
+                        <li><a href=#Wind_Archer id="궁수">윈드브레이커</a></li>
+                        <li><a href=#Night_Walker id="도적">나이트워커</a></li>
+                        <li><a href=#Thunder_Breaker id="해적">스트라이커</a></li>
+                    </ul>
+                    <h2>-레지스탕스&데몬</h2>
+                    <ul>
+                        <li><a href=#Blaster id="전사">블레스터</a></li>
+                        <li><a href=#Battle_Mage id="마법사">배틀메이지</a></li>
+                        <li><a href=#Wild_Hunter id="궁수">와일드헌터</a></li>
+                        <li><a href=#Xenon id="도적">제논</a></li>
+                        <li><a href=#Mechanic id="해적">메카닉</a></li>
+                        <li><a href=#Demon_Slayer id="전사">데몬슬레이어</a></li>
+                        <li><a href=#Demon_Avenger id="전사">데몬어벤저</a></li>
+                    </ul>
+                    <h2>-영웅</h2>
+                    <ul>
+                        <li><a href=#Aran id="전사">아란</a></li>
+                        <li><a href=#Evan id="마법사">에반</a></li>
+                        <li><a href=#Mercedes id="궁수">메르세데스</a></li>
+                        <li><a href=#Phantom id="도적">팬텀</a></li>
+                        <li><a href=#Luminous id="마법사">루미너스</a></li>
+                        <li><a href=#Shade id="해적">은월</a></li>
+                    </ul>
+                    <h2>-노바족</h2>
+                    <ul>
+                        <li><a href=#Kaiser id="전사">카이저</a></li>
+                        <li><a href=#Kain id="궁수">카인</a></li>
+                        <li><a href=#Cadena id="도적">카데나</a></li>
+                        <li<a href=#Angelic_Buster id="해적">엔젤릭버스터</a></li>
+                    </ul>
+                    <h2>-레프족</h2>
+                    <ul>
+                        <li><a href=#Adele id="전사">아델</a></li>
+                        <li><a href=#Illium id="마법사">일리움</a></li>
+                        <li><a href=#Ark id="해적">아크</a></li>
+                    </ul>
+                    <h2>-아니마족</h2>
+                    <ul>
+                        <li><a href=#Lara id="마법사">라라</a></li>
+                        <li><a href=#Hoyoung id="도적">호영</a></li>
+                    </ul>
+                    <h2>-신의 아이</h2>
+                    <ul>
+                        <li><a href=#Zero id="전사">제로</a></li>
+                    </ul>
+                    <h2>-프렌즈메이플</h2>
+                    <ul>
+                        <li><a href=#Kinesis id="마법사">키네시스</a></li>
+                    </ul>
+                </ul>
+            </aside>
+            <section id="section">
+                <article>
+                    <div>
+                        <h1 id=Mihile>미하일</h1>
+                    </div>
+                    <span><img
+                            src=https://ww.namu.la/s/b5ea18f1679f17936e06725ee04e62bbba20b77e4785556508e296e4620adefadf453d8da55d3eb67c1cd752d5cbfcbb1b3748c19cb84a3e16eb2b07f0f78161d8a61f2829658b301391f3f618eec0737360bfe1bac5b12bc3ea517badff84e6308b79d63d766c411414b1d323ad78c1>
+                    </span>
+                    <br>
+                    <br>
+                    <br>
+                    <div>팔랑크스</div>
+                    <span><img
+                            src=https://ww.namu.la/s/870cd45c79a369c3c88dd1d8817bd32ddcd3fdfad7c189470bedbaa9efbb5e7d2be4be8abf57dd61a0a7313b6e32ca0dd0cfca3e1d8dd6f28c319c7a2be0a344baf3ecbf86b3624a79e0637c8859bb8a2fb308abd417aa6317516fed190d6c0c>
+                    </span>
+                </article>
+            </section>
+            <aside id="right-aside">
+                <div class="aside-list">
+                    <h3>메이플인벤</h3>
+                    <ul>
+                        <li><a href="https://maple.inven.co.kr/" target="_blank">홈페이지</a></li>
+                        <li><a href="https://www.inven.co.kr/board/maple/2299?my=chuchu&sort=PID"
+                                target="_blank">10추글</a></li>
+                        <li><a href="https://www.inven.co.kr/board/maple/2299" target="_blank">자유게시판</a></li>
+                        <li><a href="https://www.inven.co.kr/board/maple/2304" target="_blank">팁과 노하우</a></li>
+                    </ul>
+                </div>
+                <div class="aside-list">
+                    <h3>스트리머</h3>
+                    <ul>
+                        <li><a href="https://www.youtube.com/user/skswhdkgo" target="_blank">세글자유튜브</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCUR5w0E-jQTOO8Q0FZ4ilYQ"
+                                target="_blank">팡이요유튜브</a></li>
+                        <li><a href="https://www.youtube.com/user/mlchoins" target="_blank">명예훈장유튜브</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCGtmM9H6bLgGU53NclpiXtg" target="_blank">뚝이유튜브</a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <footer id="footer">
+            <h1 id>기다리면서 놀아봐요</h1>
+            <div id="message">
+                <textarea class="footer-header"></textarea>(0/60글자)<input type="submit" class="input-message-submit"
+                    value="댓글달기">
+            </div>
+            <br>
+            <br><br>
+            <div>
+                아이고난!
+                <br>
+                <br>
+            </div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </footer>
+    </div>
 </body>
+
 </html>
