@@ -46,7 +46,8 @@
             height: 520px;
         }
 
-        span {
+        #time,
+        #title {
             font-size: 40px;
             font-weight: bolder;
         }
@@ -82,6 +83,16 @@
             width: 600px;
             height: 80px;
             font-size: 20px;
+            font-weight: 600;
+        }
+
+        #길이 {
+            font-size: 19px;
+        }
+
+        .input-message-submit {
+            margin: 5px 0 0 0;
+            height: 25px;
         }
     </style>
 </head>
@@ -92,7 +103,7 @@
             <br>
             <br>
             <a href="https://maplestory.nexon.com/Promotion/Event/2021/20211206/intro" target="_blank">
-                <span>메이플스토리 겨울방학 기대중&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <span id="title">메이플스토리 겨울방학 기대중&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             </a>
 
             <span id="time"></span>
@@ -255,8 +266,32 @@
         <footer id="footer">
             <h1 id>기다리면서 놀아봐요</h1>
             <div id="message">
-                <textarea class="footer-header"></textarea>(0/60글자)<input type="submit" class="input-message-submit"
-                    value="댓글달기">
+                <textarea class="footer-header"></textarea>
+                <span id="길이">(<span id="length">0</span>/60글자)</span>
+                <input type="submit" class="input-message-submit" value="댓글달기">
+                <script>
+                    const area = document.querySelector(".footer-header");
+                    const length = document.querySelector("#length");
+                    const count = () => {
+                        
+                            if (area.value.length >= 60) {
+                                document.getElementsByClassName(`footer-header`).readOnly = true;
+                                alert("끝");
+                            }
+
+                            else
+                                length.textContent = `${area.value.length}`;
+
+                        }
+
+
+
+
+                        area.addEventListener("keyup", count)
+                        area.addEventListener("keydown", count)
+
+
+                </script>
             </div>
             <br>
             <br><br>
