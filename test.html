@@ -77,7 +77,7 @@
             padding: 60px 0 0 60px;
         }
 
-        .footer-header {
+        #footer-header {
             line-height: normal;
             display: block;
             width: 600px;
@@ -266,29 +266,60 @@
         <footer id="footer">
             <h1 id>기다리면서 놀아봐요</h1>
             <div id="message">
-                <textarea class="footer-header"></textarea>
+                <textarea id="footer-header"></textarea>
                 <span id="길이">(<span id="length">0</span>/60글자)</span>
                 <input type="submit" class="input-message-submit" value="댓글달기">
+                <span id="길자길이초과">asd</span>
                 <script>
-                    const area = document.querySelector(".footer-header");
+                    const area = document.querySelector("#footer-header");
                     const length = document.querySelector("#length");
-                    const count = () => {
-                        
-                            if (area.value.length >= 60) {
-                                document.getElementsByClassName(`footer-header`).readOnly = true;
-                                alert("끝");
-                            }
+                    const 길이 = document.querySelector("#길이");
+                    const 길자길이초과 = document.querySelector("#길자길이초과");
+                    const upcount = () => {
+                        setTimeout(() => { }, 1000);
+                        if (area.value.length > 60) {
 
-                            else
+                            document.getElementById("길이").style.color = "black";
+                            document.getElementById("길이").style.fontSize = "16px";
+                            document.getElementById("길이").style.fontWeight = "normal";
+                            area.value = area.value.substr(0, 60);
+                            length.textContent = `${area.value.length}`;
+                        }
+                        else
+                            document.getElementById("길이").style.color = "black";
+                        document.getElementById("길이").style.fontSize = "16px";
+                        document.getElementById("길이").style.fontWeight = "normal";
+                        length.textContent = `${area.value.length}`;
+                    }
+                    const downcount = () => {
+                        setTimeout(() => { }, 1000);
+                        if (area.value.length >= 60) {
+                            if (event.keyCode == 8)
                                 length.textContent = `${area.value.length}`;
+                            else {
+                                length.textContent = `${area.value.length}`;
+                                document.getElementById("길이").style.color = "red";
+                                document.getElementById("길이").style.fontSize = "22px";
+                                document.getElementById("길이").style.fontWeight = "bolder";
+                            }
 
                         }
 
+                        else {
 
+                            document.getElementById("길이").style.color = "black";
+                            document.getElementById("길이").style.fontSize = "16px";
+                            document.getElementById("길이").style.fontWeight = "normal";
+                            length.textContent = `${area.value.length}`;
+                        }
+                    }
 
+                    if (area.value.length >= 60) {
+                        길자길이초과.textContent = "최대 글자입니다.";
+                    }
 
-                        area.addEventListener("keyup", count)
-                        area.addEventListener("keydown", count)
+                    area.addEventListener("keyup", upcount)
+                    area.addEventListener("keydown", downcount)
 
 
                 </script>
