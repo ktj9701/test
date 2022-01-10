@@ -1,0 +1,134 @@
+body {
+    width: 1623px;
+}
+
+header {
+    text-align: center;
+    height: 290px;
+}
+
+#head-title {
+    display: inline-block;
+    padding: 110px 0 0 80px;
+    text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
+}
+
+#banner {
+    float: right;
+    width: 300px;
+    height: 250px;
+}
+
+#banner li {
+    list-style: none;
+    display: none;
+    width: 300px;
+    height: 250px;
+}
+
+#content {
+    overflow: hidden;
+}
+
+#left-aside {
+    float: left;
+    margin: 0 50px 0 30px;
+    width: 400px;
+    font-size: 20px;
+}
+
+#section {
+    width: 1000px;
+    float: left;
+
+}
+
+#right-aside {
+    padding: 70px 0 0 20px;
+    display: inline-block;
+    background-color: yellow;
+    border-radius: 20px;
+    position: fixed;
+    font-size: 20px;
+    right: 150px;
+    top: 300px;
+    width: 200px;
+    height: 520px;
+}
+
+@media(max-width : 1100px) {
+
+    #left-aside {
+        width: auto;
+        float: auto;
+    }
+
+    #right-aside {
+        width: auto;
+        float: auto;
+        position: static;
+        display: none;
+    }
+}
+
+#time,
+#title {
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:first-child {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+#전사 {
+    color: #332800;
+}
+
+#footer-header {
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+#footer {
+    padding: 60px 0 0 60px;
+}
+
+#footer-header {
+    line-height: normal;
+    display: block;
+    width: 600px;
+    height: 80px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#길이 {
+    font-size: 19px;
+}
+
+.input-message-submit {
+    margin: 5px 0 0 0;
+    height: 25px;
+}
+
+#comment{
+    font-size: 21px;
+}
+
+.items{
+    list-style: none;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+.commentDel{
+    display: none;
+}
