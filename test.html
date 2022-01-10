@@ -6,142 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>html공부</title>
-    <style>
-        body {
-            width: 1623px;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        header {
-            text-align: center;
-            height: 290px;
-        }
-
-        #head-title {
-            display: inline-block;
-            padding: 110px 0 0 80px;
-            text-shadow: 0 0 20px #fefcc9, 10px -10px 30px #feec85, -20px -20px 40px #ffae34, 20px -40px 50px #ec760c, -20px -60px 60px #cd4606, 0 -80px 70px #973716, 10px -90px 80px #451b0e;
-        }
-
-        #banner {
-            float: right;
-            width: 300px;
-            height: 250px;
-        }
-
-        #banner li {
-            list-style: none;
-            display: none;
-            width: 300px;
-            height: 250px;
-        }
-
-        #content {
-            overflow: hidden;
-        }
-
-        #left-aside {
-            float: left;
-            margin: 0 50px 0 30px;
-            width: 400px;
-            font-size: 20px;
-        }
-
-        #section {
-            width: 1000px;
-            float: left;
-
-        }
-
-        #right-aside {
-            padding: 70px 0 0 20px;
-            display: inline-block;
-            background-color: yellow;
-            border-radius: 20px;
-            position: fixed;
-            font-size: 20px;
-            right: 150px;
-            top: 300px;
-            width: 200px;
-            height: 520px;
-        }
-
-        @media(max-width : 1100px) {
-
-            #left-aside {
-                width: auto;
-                float: auto;
-            }
-
-            #right-aside {
-                width: auto;
-                float: auto;
-                position: static;
-                display: none;
-            }
-        }
-
-        #time,
-        #title {
-            font-size: 40px;
-            font-weight: bolder;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        a:first-child {
-            color: black;
-        }
-
-        a:visited {
-            color: black;
-        }
-
-        #전사 {
-            color: #332800;
-        }
-
-        #footer-header {
-            font-size: 40px;
-            font-weight: bolder;
-        }
-
-        #footer {
-            padding: 60px 0 0 60px;
-        }
-
-        #footer-header {
-            line-height: normal;
-            display: block;
-            width: 600px;
-            height: 80px;
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        #길이 {
-            font-size: 19px;
-        }
-
-        .input-message-submit {
-            margin: 5px 0 0 0;
-            height: 25px;
-        }
-
-        #comment{
-            font-size: 21px;
-        }
-
-        .items{
-            list-style: none;
-            margin: 0 0 0 0;
-            padding: 0 0 0 0;
-        }
-        .commentDel{
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -170,48 +36,7 @@
                 <li id="img14"> <img src="메이플2/캐논슈터.jpg" width="500px" height="280px" alt="" /></li>
             </span>
         </header>
-        <script> // 시간 구하기
-
-            const a = document.querySelector(`#time`);
-            let timeid = 0;
-
-            a.textContent = `${new Date().toLocaleString()}`;
-            timeid = setInterval(() => {
-                a.textContent = `${new Date().toLocaleString()}`;
-            }, 1000);
-
-            function timer() {
-                const xmasDay = new Date("2021-12-23");
-                const currDay = new Date();
-
-                let diff = xmasDay - currDay;
-                const diffDays = Math.floor((xmasDay.getTime() - currDay.getTime()) / (1000 * 60 * 60 * 24));
-                diff -= diffDays * (1000 * 60 * 60 * 24);
-                const diffHours = Math.floor(diff / (1000 * 60 * 60));
-                diff -= diffHours * (1000 * 60 * 60);
-                const diffMin = Math.floor(diff / (1000 * 60));
-                diff -= diffMin * (1000 * 60);
-                const diffSec = Math.floor(diff / 1000);
-
-                a.textContent = `${diffDays < 10 ? `0${diffDays}` : diffDays}일 ${diffHours < 10 ? `0${diffHours}` : diffHours}시간 ${diffMin < 10 ? `0${diffMin}` : diffMin}분 ${diffSec < 10 ? `0${diffSec}` : diffSec}초`;
-
-
-                timeid = setInterval(() => {
-                    const currDay = new Date();
-
-                    let diff = xmasDay - currDay;
-                    const diffDays = Math.floor((xmasDay.getTime() - currDay.getTime()) / (1000 * 60 * 60 * 24));
-                    diff -= diffDays * (1000 * 60 * 60 * 24);
-                    const diffHours = Math.floor(diff / (1000 * 60 * 60));
-                    diff -= diffHours * (1000 * 60 * 60);
-                    const diffMin = Math.floor(diff / (1000 * 60));
-                    diff -= diffMin * (1000 * 60);
-                    const diffSec = Math.floor(diff / 1000);
-
-                    a.textContent = `${diffDays < 10 ? `0${diffDays}` : diffDays}일 ${diffHours < 10 ? `0${diffHours}` : diffHours}시간 ${diffMin < 10 ? `0${diffMin}` : diffMin}분 ${diffSec < 10 ? `0${diffSec}` : diffSec}초`;
-                }, 1000);
-            }
-        </script>
+        <script src="clock.js">  // 시간 구하기</script>
 
 
         <div id="content">
@@ -291,6 +116,8 @@
                     </ul>
                 </ul>
             </aside>
+
+
             <section id="section">
                 <article>
                     <div>
@@ -308,6 +135,7 @@
                     </span>
                 </article>
             </section>
+
             <aside id="right-aside">
                 <div class="aside-list">
                     <h3>메이플인벤</h3>
@@ -339,82 +167,9 @@
                 <span id="길이">(<span id="length">0</span>/60글자)</span>
                 <button class="itemAdd"><i class="fas fa-plus-circle"></i></button>
 
-                <script>
-                    const area = document.querySelector("#footer-header");
-                    const length = document.querySelector("#length");
-                    const 길이 = document.querySelector("#길이");
-                    const upcount = () => {
-                        setTimeout(() => { }, 1000);
-                        if (area.value.length > 60) {
-
-                            document.getElementById("길이").style.color = "black";
-                            document.getElementById("길이").style.fontSize = "16px";
-                            document.getElementById("길이").style.fontWeight = "normal";
-                            area.value = area.value.substr(0, 60);
-                            length.textContent = `${area.value.length}`;
-                        }
-                        else
-                            document.getElementById("길이").style.color = "black";
-                        document.getElementById("길이").style.fontSize = "16px";
-                        document.getElementById("길이").style.fontWeight = "normal";
-                        length.textContent = `${area.value.length}`;
-                    }
-                    const downcount = () => {
-                        setTimeout(() => { }, 1000);
-                        if (area.value.length >= 60) {
-                            if (event.keyCode == 8)
-                                length.textContent = `${area.value.length}`;
-                            else {
-                                length.textContent = `${area.value.length}`;
-                                document.getElementById("길이").style.color = "red";
-                                document.getElementById("길이").style.fontSize = "22px";
-                                document.getElementById("길이").style.fontWeight = "bolder";
-                            }
-
-                        }
-
-                        else {
-
-                            document.getElementById("길이").style.color = "black";
-                            document.getElementById("길이").style.fontSize = "16px";
-                            document.getElementById("길이").style.fontWeight = "normal";
-                            length.textContent = `${area.value.length}`;
-                        }
-                    }
-
-
-                    area.addEventListener("keyup", upcount)
-                    area.addEventListener("keydown", downcount)
-                </script>
+                <script src="character_limit.js"> </script>
                 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-                <script>
-                    imgslide();
-
-                    function imgslide() {
-
-                        $val = $("#banner").attr("val"); //현재 이미지 번호를 가져옵니다
-
-                        $mx = $("#banner").attr("mx"); //총 이미지 개수를 가져옵니다
-
-                        $("#img" + $val).hide(); //현재 이미지를 사라지게 합니다.
-
-
-
-                        $("#img" + $val).fadeIn(1500).delay(700).fadeOut(1500);//변경된 번호의 이미지영역을 나타나게 합니다.괄호 안에 숫자는 페이드인 되는 시간을 나타냅니다.
-                        //변경된 번호의 이미지영역을 나타나게 합니다.괄호 안에 숫자는 페이드인 되는 시간을 나타냅니다.
-
-                        if ($val == $mx) { $val = 1; } //현재이미지가 마지막 번호라면 1번으로 되돌립니다.
-
-                        else { $val++; } //마지막 번호가 아니라면 카운트를 증가시켜줍니다
-
-                        $("#banner").attr('val', $val); //변경된 이미지영역의 번호를 부여합니다.
-
-
-                        setTimeout('imgslide()', 3700); //1초 뒤에 다시 함수를 호출합니다.(숫자값 1000당 1초)
-
-
-                    }
-                </script>
+                <script src="slide.js"></script>
             </div>
             <br><br><br>
             <div>
@@ -427,63 +182,7 @@
             </div>
 
 
-            <script>
-           
-
-                const input=document.querySelector("#footer-header");
-                const itemAdd= document.querySelector(".itemAdd");
-                const items=document.querySelector(".items");
-               
-
-                
-               
-
-
-                const onAdd=() =>{
-                    const time = `${new Date().toLocaleString()}`;
-                    const text= input.value;
-                    if(input.value === ''){
-                        input.focus();
-                        return;
-                    }
-                
-                const item = document.createElement('li');
-                item.setAttribute('class', 'item');
-
-                const itemText= document.createElement('span');
-                itemText.setAttribute('class','itemText');
-                itemText.innerHTML=text;
-                itemText.innerHTML+="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 작성시간: "+time;
-                const itemDel = document.createElement('button');
-                itemDel.setAttribute('class','itemDel');
-                itemDel.style.display="table-cell";
-                itemDel.style.verticalAlign="middle";
-                itemDel.style.height="25px";
-                itemDel.style.width="25px";
-              
-                itemDel.innerHTML = '<i class="fas fa-minus-circle"></i>';
-                itemDel.addEventListener('click',()=>{
-                    items.removeChild(item);
-                });
-
-                item.appendChild(itemText);
-                item.appendChild(itemDel);
-                items.appendChild(item);
-                input.value=' ';
-                input.focus();
-            };  
-            
-            itemAdd.addEventListener('click', ()=>{
-                onAdd();
-            })
-
-            input.addEventListener('keypress',(event)=>{
-                if(event.key === 'Enter'){
-                    onAdd();
-                }
-                return;
-            })
-            </script>
+            <script src="comment.js"></script>
             <br>
             <br><br>
             <div>
